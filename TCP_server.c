@@ -211,12 +211,12 @@ char* give_ip_address( struct sockaddr_storage * ip)
 
 void cleanup( int internet_socket, int client_internet_socket )
 {
-	/* //Step 4.2
-	int shutdown_return = shutdown( client_internet_socket, SD_RECEIVE );
+	//Step 4.2
+	int shutdown_return = shutdown( client_internet_socket, FD_SETSIZE );
 	if( shutdown_return == -1 )
 	{
 		perror( "shutdown" );
-	} */
+	}
 
 	//Step 4.1
 	close( client_internet_socket );
