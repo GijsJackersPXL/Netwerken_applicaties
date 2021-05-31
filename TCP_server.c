@@ -40,7 +40,8 @@ int initialization();
 int connection( int internet_socket );
 void execution( int internet_socket );
 void cleanup( int internet_socket, int client_internet_socket );
-char* give_ip_address( struct sockaddr_storage * ip);
+char* get_ip_address( struct sockaddr_storage * ip);
+char * ip_address = NULL;
 
 int main( int argc, char * argv[] )
 {
@@ -140,7 +141,7 @@ int initialization()
 	return internet_socket;
 }
 
-char * ip_address = NULL;
+
 int connection( int internet_socket )
 {
 	//Step 2.1
@@ -153,7 +154,7 @@ int connection( int internet_socket )
 		close( internet_socket );
 		exit( 3 );
 	}
-	ip_address = give_ip_address(&client_internet_address);
+	ip_address = get_ip_address(&client_internet_address);
 	return client_socket;
 }
 
@@ -172,9 +173,11 @@ void execution( int internet_socket )
 		buffer[number_of_bytes_received] = '\0';
 		printf( "Received : %s\n", buffer );
 	}
+	
+	//sending ip address 
 	char message[1000];
 	strcpy(message, buffer);
-	strcat(message, "\nYour ip address is: " );
+	strcat(message, "\nYour ip address: " );
 	strcat(message, ip_address);
 
 	//Step 3.2
@@ -186,7 +189,7 @@ void execution( int internet_socket )
 	}
 }
 
-char* give_ip_address( struct sockaddr_storage * ip)
+char* get_ip_address( struct sockaddr_storage * ip)
 {
     void * ip_address;
     char * ip_string;
