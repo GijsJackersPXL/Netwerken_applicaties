@@ -17,3 +17,4 @@ Je maakt een 4 applicaties (UDP Client, UDP Server, TCP Client en TCP Server) di
 - Er kunnen meerdere Clients simultaan verbonden zijn en chatten met elkaar (i.e. assynchroon of synchroon verwerkt op de server) [2/10]
 - Er kan tegelijk berichten gestuurd en ontvangen worden op de Client zonder afgesproken beurtrol (e.g. multi-threaded) [2/10]
 - Een extra dat netwerk programmeren gerelateerd is [1/10]
+
