@@ -56,7 +56,6 @@ int main( int argc, char * argv[] )
 
 	execution( internet_socket );
 
-
 	////////////
 	//Clean up//
 	////////////
@@ -125,9 +124,8 @@ void execution( int internet_socket )
 {
 	
 	char message[100];
-	printf("What do you want to send?\n");
+	printf("What would you like to send?\n");
 	scanf("%[^\n]", message);
-	
 	
 	//Step 2.1
 	int number_of_bytes_send = 0;
